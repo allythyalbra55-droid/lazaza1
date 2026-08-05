@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lazaza | Personal Care</title>
+    <!-- Google Fonts الهوية البصرية -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --rose-gold: #B76E79;
+            --dusty-pink: #E7C1C7;
+            --blush: #F6E5E2;
+            --cream: #FBF6F2;
+            --taupe: #8E7D77;
+            --white: #ffffff;
+            --whatsapp-green: #25D366;
+            --voda-red: #e60000;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* مكان رابط صورة خلفية الموقع كامل */
+            background: linear-gradient(rgba(251, 246, 242, 0.95), rgba(251, 246, 242, 0.95)), 
+                        url('c:\Users\baraa\Downloads\باترون.png');
+            background-size: cover;
+            background-attachment: fixed;
+            color: var(--taupe);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        h1, h2, h3, .brand-title {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Navbar */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 12px rgba(183, 110, 121, 0.12);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .logo-img {
+            height: 55px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .logo-badge {
+            position: absolute;
+            top: -4px;
+            left: -8px;
+            background: var(--rose-gold);
+            color: var(--white);
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            border: 2px solid var(--white);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--taupe);
+            font-weight: 600;
+        }
+
+        .social-nav-icons a {
+            font-size: 18px;
+            margin-right: 8px;
+            color: var(--rose-gold);
+            transition: 0.3s;
+        }
+
+        .social-nav-icons a:hover {
+            opacity: 0.7;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(251, 246, 242, 0.85), rgba(246, 229, 226, 0.9)), 
+                        url('c:\Users\baraa\Downloads\باترون.png ');
+            background-position: center;
+            background-size: cover;
+            text-align: center;
+            padding: 70px 20px;
+            border-bottom: 2px solid var(--dusty-pink);
+        }
+
+        .hero-logo {
+            max-width: 200px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            color: var(--rose-gold);
+            margin-bottom: 10px;
+        }
+
+        /* البتونات المخصصة بخلفية صور */
+        .btn-custom {
+            /* مكان رابط صورة خلفية الزرار */
+            background: url('c:\Users\baraa\Downloads\باترون.png') center/cover no-repeat;
+            background-color: var(--rose-gold); /* لون احتياطي */
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        /* Shop Section */
+        .shop-container {
+            padding: 60px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 34px;
+            color: var(--rose-gold);
+            margin: 40px 0 20px 0;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+
+        /* كارت المنتج بخلفية مخصصة */
+        .product-card {
+            /* مكان رابط صورة خلفية كارت المنتج */
+            background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+                        url('c:\Users\baraa\Downloads\باترون.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(183, 110, 121, 0.12);
+            text-align: center;
+            padding-bottom: 20px;
+            border: 1px solid var(--blush);
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            background-color: var(--blush);
+        }
+
+        .product-title {
+            font-size: 22px;
+            margin: 15px 0 5px;
+            color: var(--rose-gold);
+        }
+
+        .product-desc {
+            font-size: 13px;
+            color: var(--taupe);
+            margin: 0 15px 10px;
+        }
+
+        .product-price {
+            font-size: 18px;
+            color: var(--rose-gold);
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .flavor-select {
+            width: 80%;
+            padding: 8px;
+            margin-bottom: 12px;
+            border: 1px solid var(--dusty-pink);
+            border-radius: 10px;
+            outline: none;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Reviews Section */
+        .reviews-section {
+            background: var(--white);
+            padding: 50px 5%;
+            border-radius: 25px;
+            margin: 40px auto;
+            max-width: 1100px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            border: 1px solid var(--blush);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .review-card {
+            background: var(--cream);
+            padding: 20px;
+            border-radius: 15px;
+            border-right: 4px solid var(--rose-gold);
+        }
+
+        .stars {
+            color: #FFD700;
+            margin-bottom: 8px;
+        }
+
+        .review-author {
+            font-weight: bold;
+            margin-top: 10px;
+            font-size: 14px;
+            color: var(--rose-gold);
+        }
+
+        /* Order Section */
+        .order-section {
+            background: var(--white);
+            margin: 40px auto;
+            padding: 35px;
+            border-radius: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            max-width: 550px;
+            border: 1px solid var(--dusty-pink);
+        }
+
+        .vodafone-info-box {
+            background: #fff5f5;
+            border: 2px dashed var(--voda-red);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .vodafone-info-box strong {
+            font-size: 22px;
+            color: var(--voda-red);
+            display: block;
+            margin: 6px 0;
+            letter-spacing: 1px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--dusty-pink);
+            border-radius: 10px;
+            outline: none;
+            background: #fcfcfc;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp-green);
+            color: white;
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1eb954;
+        }
+
+        footer {
+            background: var(--blush);
+            text-align: center;
+            padding: 35px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-socials {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-socials a {
+            color: var(--rose-gold);
+            font-size: 24px;
+            transition: 0.3s;
+        }
+
+        .footer-socials a:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo-wrapper">
+            <!-- رابط صورة اللوجو العلوي -->
+            <img src="3.png" alt="Lazaza Logo" class="logo-img">
+            <span class="logo-badge"><i class="fas fa-crown"></i></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#shop">تسوقي</a></li>
+            <li><a href="#reviews">آراء العملاء</a></li>
+            <li><a href="#order">الطلب والدفع</a></li>
+            <li class="social-nav-icons">
+                <!-- ضع روابط صفحات الفيس والانستجرام هنا -->
+                <a href="https://www.facebook.com/share/199aHBYPr3/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/dr.skin_2000?igsh=YjJzYWRqNnBxNnlu" target="_blank"><i class="fab fa-instagram"></i></a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <!-- رابط صورة اللوجو الكبير -->
+        <img src="c:\Users\baraa\Downloads\1.png   " alt="Lazaza Logo" class="hero-logo">
+        <h1>تشكيلات LAZAZA الفاخرة</h1>
+        <p>اختاري مجموعتك المفضلة وعززي أنوثتك بأجمل العطور</p>
+        <a href="#shop" class="btn-custom">استكشفي المنتجات الـ 9</a>
+    </section>
+    <section class="hero" id="home">
+    <div class="hero-video-bg">
+        <video autoplay loop muted playsinline>
+            <source src="c:\Users\baraa\Downloads\WhatsApp Video 2026-08-04 at 10.12.27 PM.mp4" type="video/mp4">
+            متصفحك لا يدعم تشغيل الفيديو.
+        </video>
+        <div class="hero-overlay"></div>
+    </div>
+
+    <div class="hero-content">
+        <img src="c:\Users\baraa\Downloads\1.png" alt="Lazaza Logo" class="logo-img">
+        
+        <h1>تشكيلات LAZAZA الفاخرة</h1>
+        <p>اختاري مجموعتك المفضلة وعززي أنوثتك بأجمل العطور</p>
+        <a href="#shop" class="btn-custom">استكشفي المنتجات الـ 9</a>
+    </div>
+</section>
+
+    <!-- Shop Section -->
+    <section class="shop-container" id="shop">
+        
+        <!-- 1. المجموعات المتكاملة -->
+        <h2 class="section-title">المجموعات المتكاملة (Sets)</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="هنا رابط صورة Strawberry set" class="product-img" alt="Strawberry set">
+                <h3 class="product-title">Strawberry Set</h3>
+                <p class="product-desc">مجموعة الفراولة الساحرة (Lotion + Body Splash + Hair Mist)</p>
+                <p class="product-price">650 ج.م</p>
+                <a href="#order" class="btn-custom">إرسال طلب</a>
+            </div>
+
+            <div class="product-card">
+                <img src="shopping.webp">
+                <h3 class="product-title">Crazy Set</h3>
+                <p class="product-desc">المجموعة الجريئة والجذابة (Lotion + Body Splash + Hair Mist)</p>
+                <p class="product-price">650 ج.م</p>
+                <a href="#order" class="btn-custom">إرسال طلب</a>
+            </div>
+
+            <div class="product-card">
+                <img src="هنا رابط صورة Vanilla set" class="product-img" alt="Vanilla set">
+                <h3 class="product-title">Vanilla Set</h3>
+                <p class="product-desc">مجموعة الفانيليا الدافئة (Lotion + Body Splash + Hair Mist)</p>
+                <p class="product-price">650 ج.م</p>
+                <a href="#order" class="btn-custom">إرسال طلب</a>
+            </div>
+        </div>
+
+        <!-- 2. مجموعات النوع الواحد -->
+        <h2 class="section-title">مجموعات النوع الواحد</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="هنا رابط صورة Hair mist set" class="product-img" alt="Hair mist set">
+                <h3 class="product-title">Hair Mist Set</h3>
+                <p class="product-desc">مجموعة معطر الشعر الخاصة (3 عبوات)</p>
+                <p class="product-price">450 ج.م</p>
+                <a href="#order" class="btn-custom">إرسال طلب</a>
+            </div>
+
+            <div class="product-card">
+                <img src="هنا رابط صورة Body splash set" class="product-img" alt="Body splash set">
+                <h3 class="product-title">Body Splash Set</h3>
+                <p class="product-desc">مجموعة معطر الجسم المنعشة (3 عبوات)</p>
+                <p class="product-price">450 ج.م</p>
+                <a href="#order" class="btn-custom">إرسال طلب</a>
+            </div>
+
+            <div class="product-card">
+                <img src="هنا رابط صورة Lotion set" class="product-img" alt="Lotion set">
+                <h3 class="product-title">Lotion Set</h3>
+                <p class="product-desc">مجموعة اللوشن الفاخرة للترطيب (3 عبوات)</p>
+                <p class="product-price">450 ج.م</p>
+                <a href="#order" class="btn-custom">إرسال طلب</a>
+            </div>
+        </div>
+
+        <!-- 3. العبوات المفردة -->
+        <h2 class="section-title">العبوات المفردة (اختاري العطر المناسب)</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="هنا رابط صورة العبوة المفردة للوشن" class="product-img" alt="Lotion">
+                <h3 class="product-title">Lotion (عبوة واحدة)</h3>
+                <p class="product-desc">ترطيب عميق ونعومة حريرية</p>
+                <select class="flavor-select">
+                    <option>اختر العطر: Vanilla</option>
+                    <option>اختر العطر: Strawberry</option>
+                    <option>اختر العطر: Crazy</option>
+                </select>
+                <p class="product-price">200 ج.م</p>
+                <a href="#order" class="btn-custom">إرسال طلب</a>
+            </div>
+
+            <div class="product-card">
+                <img src="هنا رابط صورة العبوة المفردة لهير مست" class="product-img" alt="Hair Mist">
+                <h3 class="product-title">Hair Mist (عبوة واحدة)</h3>
+                <p class="product-desc">معطر ولمعان للشعر طوال اليوم</p>
+                <select class="flavor-select">
+                    <option>اختر العطر: Vanilla</option>
+                    <option>اختر العطر: Strawberry</option>
+                    <option>اختر العطر: Crazy</option>
+                </select>
+                <p class="product-price">220 ج.م</p>
+                <a href="#order" class="btn-custom">إرسال طلب</a>
+            </div>
+
+            <div class="product-card">
+                <img src="هنا رابط صورة العبوة المفردة لسبلاش" class="product-img" alt="Body Splash">
+                <h3 class="product-title">Body Splash (عبوة واحدة)</h3>
+                <p class="product-desc">انتعاش برائحة فواحة مميزة</p>
+                <select class="flavor-select">
+                    <option>اختر العطر : Vanilla</option>
+                    <option>اختر العطر : Strawberry</option>
+                    <option>اختر العطر: Crazy</option>
+                </select>
+                <p class="product-price">250 ج.م</p>
+                <a href="#order" class="btn-custom">إرسال طلب</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section" id="reviews">
+        <h2 class="section-title" style="margin: 0;">آراء عميلاتنا المتميزات ✨</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"مجموعة الفانيليا تحفة جداً والريحة بتثبت في الهدوم طول اليوم. شكراً لاذاذا!"</p>
+                <div class="review-author">- مريم أحمد</div>
+            </div>
+            <div class="review-card">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"الـ Strawberry Set تجنن! والتوصيل كان سريع جداً والمنتجات أصلية."</p>
+                <div class="review-author">- سارة محمود</div>
+            </div>
+            <div class="review-card">
+                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <p>"اللوشن بيرطب جداً ومش بيلزق والسبلاش ريحته هادية وراقية خالص."</p>
+                <div class="review-author">- نورهان علي</div>
+            </div>
+            <!-- قسم آراء العملاء -->
+<div class="reviews-container">
+  <h2>أترك رأيك وتقييمك</h2>
+  
+  <!-- نموذج كتابة الرأي -->
+  <form id="reviewForm">
+    <input type="text" id="reviewerName" placeholder="اسمك" required>
+    
+    <div class="star-rating">
+      <select id="reviewerRating" required>
+        <option value="5">⭐⭐⭐⭐⭐ (5/5)</option>
+        <option value="4">⭐⭐⭐⭐ (4/5)</option>
+        <option value="3">⭐⭐⭐ (3/5)</option>
+        <option value="2">⭐⭐ (2/5)</option>
+        <option value="1">⭐ (1/5)</option>
+      </select>
+    </div>
+
+    <textarea id="reviewerComment" placeholder="اكتب رأيك هنا..." rows="4" required></textarea>
+    <button type="submit">إرسال الرأي</button>
+  </form>
+
+  <hr>
+
+  <!-- مكان ظهور الآراء التي يكتبها الناس -->
+  <h3>آراء الزوار:</h3>
+  <div id="reviewsList">
+    <!-- التقييمات هتنزل هنا تلقائياً -->
+  </div>
+</div>
+
+<!-- كود التشغيل (JavaScript) -->
+<script>
+  document.getElementById('reviewForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // منع إعادة تحميل الصفحة
+
+    // جلب البيانات المدخلة
+    const name = document.getElementById('reviewerName').value;
+    const rating = document.getElementById('reviewerRating').value;
+    const comment = document.getElementById('reviewerComment').value;
+
+    // تحويل الرقم لنجمات
+    const stars = '⭐'.repeat(rating);
+
+    // إنشاء عنصر التقييم الجديد
+    const reviewCard = document.createElement('div');
+    reviewCard.className = 'review-card';
+    reviewCard.innerHTML = `
+      <h4>${name} <span>${stars}</span></h4>
+      <p>${comment}</p>
+    `;
+
+    // إضافة التقييم لأول القائمة
+    document.getElementById('reviewsList').prepend(reviewCard);
+
+    // تفريغ النموذج
+    document.getElementById('reviewForm').reset();
+  });
+</script>
+        </div>
+    </section>
+
+    <!-- Order Section -->
+    <section class="order-section" id="order">
+        <h3 style="color: var(--rose-gold); text-align: center; margin-bottom: 20px; font-size: 26px;">إرسال بيانات الطلب</h3>
+
+        <!-- صندوق تحويل فودافون كاش الحصري -->
+        <div class="vodafone-info-box">
+            <p style="font-weight: bold; color: #333;">الدفع حصرياً عن طريق فودافون كاش 📱</p>
+            <p style="font-size: 13px; margin-top: 5px;">يرجى تحويل مبلغ الطلب على المحفظة التالية:</p>
+            <strong>01092339986</strong> <!-- اكتب رقم محفظتك هنا -->
+            <small style="color: #666; display: block; margin-top: 4px;">ويرجى رفع صورة إيصال التحويل بالأسفل</small>
+        </div>
+
+        <form id="whatsappForm">
+            <div class="form-group">
+                <label>المنتج المطلوب</label>
+                <select id="productSelect" required>
+                    <option value="Strawberry Set - 650 EGP">Strawberry Set - 650 ج.م</option>
+                    <option value="Crazy Set - 650 EGP">Crazy Set - 650 ج.م</option>
+                    <option value="Vanilla Set - 650 EGP">Vanilla Set - 650 ج.م</option>
+                    <option value="Hair Mist Set - 450 EGP">Hair Mist Set - 450 ج.م</option>
+                    <option value="Body Splash Set - 450 EGP">Body Splash Set - 450 ج.م</option>
+                    <option value="Lotion Set - 450 EGP">Lotion Set - 450 ج.م</option>
+                    <option value="Single Lotion - 200 EGP">Lotion عبوة واحدة - 200 ج.م</option>
+                    <option value="Single Hair Mist - 220 EGP">Hair Mist عبوة واحدة - 220 ج.م</option>
+                    <option value="Single Body Splash - 250 EGP">Body Splash عبوة واحدة - 250 ج.م</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>النكهة (للعبوات المفردة فقط)</label>
+                <select id="flavorSelect">
+                    <option value="غير محدد (مجموعة كاملة)">غير محدد (مجموعة كاملة)</option>
+                    <option value="فانيليا (Vanilla)">فانيليا (Vanilla)</option>
+                    <option value="فراولة (Strawberry)">فراولة (Strawberry)</option>
+                    <option value="كريزي (Crazy)">كريزي (Crazy)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>إرفاق صورة إيصال تحويل فودافون كاش (Screenshot) *</label>
+                <input type="file" id="receiptFile" accept="image/*" style="padding: 6px;" required>
+            </div>
+
+            <div class="form-group">
+                <label>الاسم بالكامل</label>
+                <input type="text" id="custName" placeholder="الاسم الرباعي" required>
+            </div>
+            
+            <div class="form-group">
+                <label>رقم الموبايل للتواصل</label>
+                <input type="tel" id="custPhone" placeholder="010xxxxxxxx" required>
+            </div>
+
+            <div class="form-group">
+                <label>العنوان بالتفصيل</label>
+                <input type="text" id="custAddress" placeholder="المحافظة - المدينة - اسم الشارع" required>
+            </div>
+
+            <button type="button" class="btn-whatsapp" onclick="sendToWhatsApp()">
+                <i class="fab fa-whatsapp" style="font-size: 22px;"></i> إرسال الطلب (إشعار الواتساب)
+            </button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2026 - **LAZAZA Personal Care**</p>
+
+        <!-- روابط وسائل التواصل الاجتماعي في الفوتر -->
+        <div class="footer-socials">
+            <a href="رابط صفحة الفيسبوك هنا" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="رابط صفحة الانستجرام هنا" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <!-- Script -->
+    <script>
+        function sendToWhatsApp() {
+            // اكتب رقم الواتساب الخاص بك هنا بالرمز الدولي (مثال لمصر: 201012345678)
+            var myPhoneNumber = "201026600351";
+
+            var product = document.getElementById("productSelect").value;
+            var flavor = document.getElementById("flavorSelect").value;
+            var name = document.getElementById("custName").value;
+            var phone = document.getElementById("custPhone").value;
+            var address = document.getElementById("custAddress").value;
+            var receiptFile = document.getElementById("receiptFile").files[0];
+
+            if (name == "" || phone == "" || address == "") {
+                alert("يرجى إكمال جميع البيانات الأساسية قبل الإرسال!");
+                return;
+            }
+
+            if (!receiptFile) {
+                alert("يرجى إرفاق صورة إيصال تحويل فودافون كاش أولاً قبل إرسال الطلب!");
+                return;
+            }
+
+            var receiptText = "تم إرفاق صورة الإيصال باسم (" + receiptFile.name + ") - سيتم إرسال الصورة في الشات فوراً 📸";
+
+            // تجهيز نص الرسالة
+            var message = "🚨 *إشعار طلب جديد من الويب سايت* 🚨%0A%0A" +
+                          "📦 *المنتج المطلوب:* " + product + "%0A" +
+                          "🌸 *النكهة:* " + flavor + "%0A" +
+                          "💳 *طريقة الدفع:* فودافون كاش (Vodafone Cash)%0A" +
+                          "🧾 *الإيصال:* " + receiptText + "%0A%0A" +
+                          "👤 *اسم العميل:* " + name + "%0A" +
+                          "📞 *رقم الموبايل:* " + phone + "%0A" +
+                          "📍 *العنوان:* " + address + "%0A%0A" +
+                          "👉 *يرجى مراجعة التحويل وتأكيد شحن الأوردر.*";
+
+            var whatsappURL = "https://wa.me/" + myPhoneNumber + "?text=" + message;
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+</body>
+</html>
